@@ -2,7 +2,7 @@
 const URL  = require('../models/url')
 const shortid  = require('shortid')
 
-const domain = 'http://192.168.43.68:3000';
+const domain = process.env.production ? 'https://urlshortener-pickfu.herokuapp.com' : 'http://localhost:3000';
 
 exports.all = async function(req,res){
     const urls = await URL.find({is_active:true})
