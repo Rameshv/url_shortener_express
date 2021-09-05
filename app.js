@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 3000
 
 const mongoose = require('mongoose')
 const connection_url = process.env.MONGODB_URI || 'mongodb://localhost:27017/url_shortener'
@@ -12,11 +11,14 @@ mongoose.connect(connection_url, {
     useUnifiedTopology: true
 })
 
+
+const PORT = process.env.PORT || 3000;
+
 var db = mongoose.connection
 
 db.on('open',()=>{
-  app.listen(port, () => {
-    console.log(`URL Shortner app listening at http://localhost:${port}`)
+  app.listen(PORT, () => {
+    console.log(`URL Shortner app listening at http://localhost:${PORT}`)
   })
 })
 
