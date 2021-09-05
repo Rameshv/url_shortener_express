@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 const mongoose = require('mongoose')
-const connection_url = 'mongodb://localhost:27017/url_shortener'
+const connection_url = process.env.MONGODB_URI || 'mongodb://localhost:27017/url_shortener'
 const url_controller = require('./controllers/url_controller')
 const cors = require('cors')
 
